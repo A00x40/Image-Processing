@@ -1,6 +1,23 @@
 '''
 (1) Averaging Filter
 '''
+def meanFilter(imgage , window_width , window_height):
+    outImage = np.zeros( (len(image),len(image[0])))
+    
+    edgex = (window_width // 2) 
+    edgey = (window_height // 2) 
+    
+    for x in range (edgex , len(image) - edgex) :
+        for y in range (edgex , len(image[0]) - edgey) :   
+            
+            avgVal = 0;
+            for fx in range( window_width ) :    
+                for fy in range( window_height ) :
+                    avgVal += image[x + fx - edgex][y + fy - edgey]
+                    
+            outImage[x][y] = avgVal / (window_width * window_height
+            
+     return outImage    
 
 '''
 (2) Median Filter
